@@ -1,0 +1,19 @@
+uni.requestPayment({
+    provider: 'wxpay',
+    orderInfo: data.orderInfo, //微信、支付宝订单数据 【注意微信的订单信息，键值应该全部是小写，不能采用驼峰命名】
+    nonceStr: data.noncestr,
+    package: data.package,
+    timeStamp: data.timestamp,
+    signType: data.signType,
+    paySign: data.paySign,
+    success: function (res) {
+        if (e.errMsg == "requestPayment:ok") {
+          console.log('支付成功')
+        }else{
+          console.log('支付失败')
+        }
+    },
+    fail: function (err) {
+        console.log('支付失败:' + JSON.stringify(err));
+    }
+});
