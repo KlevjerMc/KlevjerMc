@@ -1,0 +1,24 @@
+public class Borrow implements Ioperate{
+    @Override
+    public void operate(BookList bookList) {
+        System.out.println("n：");
+        Scanner scan = new Scanner(System.in);
+        String name = scan.nextLine();
+
+        int curSize = bookList.getCurSize();
+        for (int i = 0; i < curSize; i++) {
+            Book book = bookList.getBooks(i);
+            if(book.getName().equals(name)){
+                if(book.isIs_borrowed() == false){
+                    System.out.println("nn......");
+                    book.setIs_borrowed(true);
+                }else{
+                    System.out.println("nkhn.....");
+                }
+                return;
+            }
+        }
+
+        System.out.println("nkhbvb.....");
+    }
+}
